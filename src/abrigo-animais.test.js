@@ -91,4 +91,17 @@ describe('Abrigo de Animais', () => {
       expect(resultado.lista.length).toBe(5);
       expect(resultado.erro).toBeFalsy();
   });
+
+  test('Deve rejeitar adoção de gato se brinquedo conflitar com outro gato já adotado',()=>{
+    const resultado = new AbrigoAnimais().encontraPessoas(
+      'BOLA,RATO,LASER,SKATE,CAIXA,NOVELO',
+      'RATO,BOLA',
+      'Mimi,Fofo,Zero');
+
+      expect(resultado.lista[0]).toBe("Fofo - abrigo");
+      expect(resultado.lista[1]).toBe("Mimi - pessoa 1");
+      expect(resultado.lista[2]).toBe("Zero - abrigo");
+      expect(resultado.lista.length).toBe(3);
+      expect(resultado.erro).toBeFalsy();
+  });
 });

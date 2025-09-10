@@ -7,7 +7,6 @@ class Pessoa {
 
     podeAdotar(animal){
         if (this.totalAnimais >= 3) {
-            console.log("******* DEBUG - pessoa ja tem 3 animais ******* ");
             return false;
         }
         return animal.atende(this.brinquedos, this.totalAnimais);
